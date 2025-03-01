@@ -1,0 +1,13 @@
+import os
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+os.chdir('D:/workspace/Proj1/Hackathon')
+data = pd.read_csv('US_Crime_Rates_1960_2014.csv')
+num = data
+for col_name in num.columns:
+    if(num[col_name].dtype == 'object'):
+        num[col_name] = num[col_name].astype('category')
+        num[col_name] = num[col_name].cat.codes
+corr_ma = num.corr()
+sns.heatmap(corr_ma, annot=True)
