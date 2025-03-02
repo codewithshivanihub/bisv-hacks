@@ -5,34 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Healthcare Access and Marginalized Crime</title>
     <style>
+        /* Reset default margin/padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    }
-    
-    .topnav {
-    overflow: hidden;
-    background-color: #333;
-    }
-    
-    .topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    }
-    
-    .topnav a:hover {
-    background-color: #ddd;
-    color: black;
-    }
-    
-    .topnav a.active {
-    background-color: #04AA6D;
-    color: white;
-    }
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+        }
+
+        /* Top navigation bar styling */
+        .topnav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #333;
+            padding: 15px;
+        }
+
+        .topnav a {
+            color: #f2f2f2;
+            text-align: center;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        .topnav a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        /* Main content */
+        .content {
+            padding: 30px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            margin: 0 15px 20px;
+            text-align: justify;
+        }
+
+        /* Responsive design */
+        @media screen and (max-width: 768px) {
+            .topnav {
+                flex-direction: column;
+            }
+
+            .topnav a {
+                padding: 15px;
+                font-size: 16px;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Add spacing for better readability */
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -40,17 +107,18 @@
         <a class="active" href="Home.html">Home</a>
         <a href="HealthcareMap.html">Healthcare Map</a>
         <a href="CriminalOffenses.html">Criminal Offenses</a>
-      </div>
-      <h1><u>Healthcare Access and Marginalized Crime</u></h1>
-      <h2>Healthcare Access in the US</h2>
-      <p>Proper healthcare can often be hard to find outside of home, or even in a different country. Even in the US, not all healthcare is created equal, for there are still places where it is hard to find proper and affordable care. Rural areas in the US are ranked the lowest in Healthcare Accessibility, because in these areas, there are fewer hospitals, making it harder to quickly access healthcare.</p>
-  
-    <h2>Marginalized Crime</h2>
-      <p>Crime rates are going up in many places, and police employment rates are going down. Crimes happens almost every second, and they include robbery, assualt, vehicle theft, and larceny theft among many. The amount of corruption in many police departments makes it hard for some groups of people to call the police.</p>
+    </div>
     
-    <h2>So What Are We Doing About This?</h2>
-      <p> We have created this website to quickly locate the nearest medical facilities to your current location. Use the map on the next page.
-      We also have created a form for people who feel unsafe in their environment and don't feel comfortable communicating directly to the police. 
-      With these measures, we hope we can create a safer world for tomorrow.</p>
-  
+    <div class="content">
+        <h1>Healthcare Access and Marginalized Crime</h1>
+        <h2>Healthcare Access in the US</h2>
+        <p>Proper healthcare can often be hard to find outside of home, or even in a different country. Even in the US, not all healthcare is created equal, for there are still places where it is hard to find proper and affordable care. Rural areas in the US are ranked the lowest in Healthcare Accessibility, because in these areas, there are fewer hospitals, making it harder to quickly access healthcare.</p>
+
+        <h2>Marginalized Crime</h2>
+        <p>Crime rates are going up in many places, and police employment rates are going down. Crimes happen almost every second, and they include robbery, assault, vehicle theft, and larceny theft among many others. The amount of corruption in many police departments makes it hard for some groups of people to call the police.</p>
+
+        <h2>So What Are We Doing About This?</h2>
+        <p>We have created this website to quickly locate the nearest medical facilities to your current location. Use the map on the next page. We also have created a form for people who feel unsafe in their environment and don't feel comfortable communicating directly with the police. With these measures, we hope we can create a safer world for tomorrow.</p>
+    </div>
 </body>
+</html>
