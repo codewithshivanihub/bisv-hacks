@@ -30,6 +30,21 @@ year_violence.scatter(data['Year'], data['Total'], color='red')
 year_violence.set_title('Year vs Total Crimes')
 year_violence.set_xlabel('Year')
 year_violence.set_ylabel('Total Crimes')
+#correlation betwen burglary and murder rates
+scatter_plot = plt.figure()
+year_violence = scatter_plot.add_subplot(1, 1, 1)
+year_violence.scatter(data['Burglary'], data['Murder'])
+year_violence.set_title('Burglary and Murder')
+year_violence.set_xlabel('Burglary')
+year_violence.set_ylabel('Murder')
+
+#correlation between robbery and murder rates
+scatter_plot = plt.figure()
+year_violence = scatter_plot.add_subplot(1, 1, 1)
+year_violence.scatter(data['Robbery'], data['Murder'])
+year_violence.set_title('Robbery and Murder')
+year_violence.set_xlabel('Robbery')
+year_violence.set_ylabel('Murder')
 
 #describes what the graph shows
 ''' The data shows that there is a correlation between the year and the total crimes. Additionally, most types of crimes increase each year. 
