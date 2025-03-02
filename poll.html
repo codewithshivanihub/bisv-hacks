@@ -1,18 +1,65 @@
 <form>
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name"><br><br>
-    <label for="zcode">Zip Code:</label><br>
-    <input type="text" id="zcode" name="zcode">
-    <br>
-    <br>
-    <label for="offense">Choose the Issue Occured:</label><br>
-    <input type="radio" id="assault" name="issue" value="Assault">
-    <label for="assault">Assault</label><br>
-    <input type="radio" id="misconduct" name="issue" value="Police Misconduct">
-    <label for="misconduct">Police Misconduct</label><br>
-    <input type="radio" id="discrimination" name="issue" value="Discrimination">
-    <label for="discrimination">Discrimination</label><br>
-    <input type="radio" id="environmental" name="issue" value="Environmental Hazard">
-    <label for="environmental">Environmental Hazard</label><br><br>
-    <input type="submit" value="Submit">
+    <form id="pollForm" method="POST"></form>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="zcode">Zip Code:</label><br>
+        <input type="text" id="code" name="zcode" placeholder="Enter the zip code of the issue here" required><br><br>
+        <br>
+        <label for="offense">Choose the Issue Occured:</label><br>
+        <input type="radio" id="assault" name="issue" value="Assault">
+        <label for="assault">Assault</label><br>
+        <input type="radio" id="misconduct" name="issue" value="Police Misconduct">
+        <label for="misconduct">Police Misconduct</label><br>
+        <input type="radio" id="discrimination" name="issue" value="Discrimination">
+        <label for="discrimination">Discrimination</label><br>
+        <input type="radio" id="environmental" name="issue" value="Environmental Hazard">
+        <label for="environmental">Environmental Hazard</label><br><br>
+        <input type="submit" value="Submit"><br><br>
   </form>
+  
+  <h2>Poll Answers:</h2>
+    <ul>
+        {% if answers %}
+            {% for answer in answers %}
+                <li>{{ answer }}</li>
+            {% endfor %}
+        {% else %}
+            <p>No answers yet.</p>
+        {% endif %}
+    </ul>
+
+  <script>
+      document.getElementById('pollForm').addEventListener('submit', function(event) {
+          event.preventDefault(); // Prevent form from submitting
+
+          // Get selected poll option
+          const selectedOption = document.querySelector('input[name="zcode"]:checked');
+          if (selectedOption) {
+              const userVote = selectedOption.value;
+
+              // Send the poll data to the server
+              fetch('/submit_poll', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({ pollOption: userVote })
+              })
+              .then(response => response.json())
+              .then(data => {
+                  // Display updated results
+                  const pollResults = document.getElementById('pollResults');
+                  pollResults.innerHTML = ''; // Clear previous results
+                  for (const [option, votes] of Object.entries(data)) {
+                      const li = document.createElement('li');
+                      li.textContent = `${option}: ${votes} votes`;
+                      pollResults.appendChild(li);
+                  }
+              });
+          } else {
+              alert("Please select an option.");
+          }
+      });
+  </script>
+</body>
+</html>
